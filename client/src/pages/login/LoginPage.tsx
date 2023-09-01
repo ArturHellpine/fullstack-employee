@@ -1,11 +1,9 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useState } from "react";
 import { Card, Form, Row, Space, Typography } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import { Paths } from "../../paths";
 import { useLoginMutation, UserData } from "../../app/services/auth";
 import { isErrorWithMessage } from "../../utils/isErrorWithMessage";
-import { useSelector } from "react-redux";
-import { selectUser } from "../../features/auth/authSlice";
 import ErrorMessage from "../../components/error/ErrorMessage";
 import CustomButton from "../../components/button/CustomButton";
 import PasswordInput from "../../components/password-input/PasswordInput";
@@ -15,14 +13,7 @@ import Layout from "../../components/layout/Layout";
 const LoginPage: FC = () => {
     const [loginUser, loginUserResult] = useLoginMutation()
     const [error, setError] = useState('')
-    const user = useSelector(selectUser)
     const navigate = useNavigate()
-
-    useEffect(() => {
-        if(user) {
-            navigate(Paths.home)
-        }
-    }, [])
 
     const login = async (data: UserData) => {
         try {

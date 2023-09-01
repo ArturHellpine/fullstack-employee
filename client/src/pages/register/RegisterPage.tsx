@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Card, Form, Row, Space, Typography } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import { Paths } from "../../paths";
-import { useSelector } from "react-redux";
-import { selectUser } from "../../features/auth/authSlice";
 import { isErrorWithMessage } from "../../utils/isErrorWithMessage";
 import { useRegisterMutation } from "../../app/services/auth";
 import { User } from "@prisma/client";
@@ -16,16 +14,9 @@ import ErrorMessage from "../../components/error/ErrorMessage";
 type RegisterData = Omit<User, 'id'> & {confirmPassword: string}
 
 const RegisterPage = () => {
-    const user = useSelector(selectUser)
     const navigate = useNavigate()
     const [error, setError] = useState('')
     const [registerUser] = useRegisterMutation()
-
-    useEffect(() => {
-        if(user) {
-            navigate(Paths.home)
-        }
-    }, [])
 
     const register = async (data: RegisterData) => {
         try {
