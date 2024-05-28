@@ -16,7 +16,7 @@ interface EmployeeFormProps {
 const EmployeeForm: FC<EmployeeFormProps> = ({ onFinish, title, btnText, error, employee }) => {
     return (
         <Card title={ title } style={{ width: '32rem' }} headStyle={{ textAlign: 'center', fontSize: '20px' }}>
-            <Form name='employee-form' onFinish={ onFinish } initialValues={ employee }>
+            <Form name='employee-form' onFinish={ onFinish } initialValues={ employee } autoComplete='off'>
                 <CustomInput type='text' name='firstName' placeholder='Ім’я' />
                 <CustomInput type='text' name='lastName' placeholder='Прізвище' />
                 <CustomInput type='text' name='age' placeholder='Вік' />

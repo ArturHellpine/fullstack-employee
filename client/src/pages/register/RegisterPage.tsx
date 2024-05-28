@@ -40,7 +40,7 @@ const RegisterPage = () => {
                     headStyle={{ textAlign: 'center', fontSize: '20px' }}
                     style={{ width: '30rem' }}
                 >
-                    <Form onFinish={ register }>
+                    <Form onFinish={ register } autoComplete='off'>
                         <CustomInput name='name' placeholder='Повне ім’я' />
                         <CustomInput name='email' type='email' placeholder='Пошта' />
                         <PasswordInput name='password' placeholder='Пароль'/>

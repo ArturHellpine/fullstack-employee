@@ -37,7 +37,7 @@ const LoginPage: FC = () => {
                     headStyle={{ textAlign: 'center', fontSize: '20px' }}
                     style={{ width: '30rem' }}
                 >
-                    <Form onFinish={ login }>
+                    <Form onFinish={ login } autoComplete='off'>
                         <CustomInput name='email' type='email' placeholder='Пошта' />
                         <PasswordInput name='password' placeholder='Пароль'/>
                         <CustomButton type='primary' htmlType='submit'>Ввійти</CustomButton>
